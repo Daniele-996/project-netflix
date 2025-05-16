@@ -41,7 +41,7 @@ const MyNavbar = () => {
         </Container>
       </Navbar>
 
-      <Row className="row align-items-center">
+      <Row className="row align-items-center" style={{ maxWidth: "98%" }}>
         <Col className="col-md-6 d-flex align-items-center">
           <h2 className=" me-4">TV Shows</h2>
           <div className="dropdown">
