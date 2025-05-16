@@ -3,13 +3,11 @@ import { Container, Row, Col, Image, Spinner, Alert } from "react-bootstrap";
 
 class CreateGallery extends Component {
   state = {
-    query: ["Harry Potter", "Vacanze di natale", "Indiana Jones", "Thor"],
-
     galleries: {},
   };
 
   componentDidMount() {
-    this.state.query.forEach((query) => {
+    this.props.film.forEach((query) => {
       this.fetchData(query);
     });
   }
@@ -33,10 +31,11 @@ class CreateGallery extends Component {
       .then((response) => response.json())
       .then((data) => {
         if (data.Response === "True") {
+          const onlySixImg = data.Search.slice(0, 6);
           this.setState((newState) => ({
             galleries: {
               ...newState.galleries,
-              [query]: { loading: false, error: null, images: data.Search },
+              [query]: { loading: false, error: null, images: onlySixImg },
             },
           }));
         } else {
@@ -48,6 +47,7 @@ class CreateGallery extends Component {
           }));
         }
       })
+
       .catch(() => {
         this.setState((newState) => ({
           galleries: {
@@ -78,7 +78,7 @@ class CreateGallery extends Component {
 
         {error && <Alert variant="danger">{error}</Alert>}
 
-        <Row xs={1} sm={2} lg={4} xl={6} className="g-3 ">
+        <Row xs={1} sm={2} lg={6} xl={6} className="g-2 ">
           {images.map((poster) => (
             <Col key={poster.imdbID} className="text-center">
               <Image
@@ -89,7 +89,6 @@ class CreateGallery extends Component {
                 }
                 alt={poster.Title}
                 fluid
-                rounded
               />
             </Col>
           ))}
@@ -101,7 +100,7 @@ class CreateGallery extends Component {
   render() {
     return (
       <Container className="mt-3">
-        {this.state.query.map((q) => this.renderNewGallery(q))}
+        {this.props.film.map((q) => this.renderNewGallery(q))}
       </Container>
     );
   }

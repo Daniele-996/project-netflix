@@ -57,6 +57,10 @@ footer {
 
 .col img {
   transition: transform 0.2s;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  aspect-ratio: 2/3;
 }
 
 .col img:hover {

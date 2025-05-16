@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 
 const MyNavbar = () => {
   return (
@@ -41,12 +41,9 @@ const MyNavbar = () => {
         </Container>
       </Navbar>
 
-      <div
-        className="row align-items-center"
-        style={{ backgroundColor: "#221f1f" }}
-      >
-        <div className="col-md-6 d-flex align-items-center">
-          <h2 className="mb-0 me-4">TV Shows</h2>
+      <Row className="row align-items-center">
+        <Col className="col-md-6 d-flex align-items-center">
+          <h2 className=" me-4">TV Shows</h2>
           <div className="dropdown">
             <button
               type="button"
@@ -75,13 +72,13 @@ const MyNavbar = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </Col>
 
-        <div className="col-md-6 d-flex justify-content-end">
+        <Col className="col-md-6 d-flex justify-content-end">
           <i className="bi bi-grid icons me-3"></i>
           <i className="bi bi-grid-3x3 icons"></i>
-        </div>
-      </div>
+        </Col>
+      </Row>
     </>
   );
 };

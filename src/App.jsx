@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <MyNavbar />
-      <CreateGallery />
+      <CreateGallery film={["Harry Potter", "Thor", "Indiana Jones", "War"]} />
       <Footer />
     </>
   );
