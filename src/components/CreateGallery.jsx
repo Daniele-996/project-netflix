@@ -67,7 +67,7 @@ class CreateGallery extends Component {
     const { images = [], loading = false, error = null } = gallery;
 
     return (
-      <div key={query} className="mb-5">
+      <div key={query} className="mb-3">
         <h4>{query}</h4>
 
         {loading && (
@@ -99,7 +99,7 @@ class CreateGallery extends Component {
 
   render() {
     return (
-      <Container className="mt-3">
+      <Container className="mt-1">
         {this.props.film.map((q) => this.renderNewGallery(q))}
       </Container>
     );
